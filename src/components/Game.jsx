@@ -6,6 +6,7 @@ export default function Game({cardCount}) {
   const [cards, setCards] = useState(null);
   const [selectedCards, setSelectedCards] = useState([]);
   const [score, setScore] = useState(0);
+  const [isGameOver, setIsGameOver] = useState(false);
 
 
   //Whenever a card is clicked, update selectedCards and increment score by 1
@@ -18,6 +19,7 @@ export default function Game({cardCount}) {
     }else{
       console.log("Game Over!")
       console.log(`Score: ${score}`)
+      setIsGameOver(true);
     }
     
   }
@@ -56,10 +58,17 @@ export default function Game({cardCount}) {
     ) : (
       <div className='flex flex-col items-center'>
       <div className='text-3xl'>Score: {score}</div>
-      <div className="grid grid-flow-col grid-rows-2 gap-3">
+
+      {!isGameOver? (
+        <div className="grid grid-flow-col grid-rows-2 gap-3">
         {cards ? cards.map((card, index) => (<div key={index}><Card data={card} onCardClick={() => handleCardClick(card)}/></div>))
          : null}
-      </div>
+        </div>
+      ) : (<>
+        <div className='text-3xl'>Game Over!</div>
+      </>)}
+      
+
       </div>
     )}
     </>

@@ -18,7 +18,7 @@ export default function Menu(){
             {!startGame && (
                 <div className="flex flex-col max-w-[50%] items-center bg-lime-500">
                     <div>Select amount of cards</div>
-                    <input type='text' onChange={handleInputChange}/>
+                    <input className='text-center' type='number' placeholder="15" onChange={handleInputChange}/>
                     <button onClick={onButtonClick}>Start</button>
                 </div>
             )}
