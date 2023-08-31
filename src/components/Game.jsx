@@ -27,7 +27,7 @@ export default function Game({cardCount}) {
   }, [selectedCards]);
 
 
-  //Fetch a deck then draw {count} of cards
+  //Fetch a deck then draw {cardCount} of cards
   useEffect(() => {
     setIsLoading(true);
 
@@ -53,9 +53,12 @@ export default function Game({cardCount}) {
     {isLoading ? (
       <p>Loading data...</p>
     ) : (
+      <div className='flex flex-col items-center'>
+      <div className='text-3xl'>Score: {score}</div>
       <div className="grid grid-flow-col grid-rows-2 gap-3">
         {cards ? cards.map((card, index) => (<div key={index}><Card data={card} onCardClick={() => handleCardClick(card)}/></div>))
          : null}
+      </div>
       </div>
     )}
     </>
