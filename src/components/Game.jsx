@@ -2,19 +2,23 @@ import { useEffect, useState } from 'react';
 import Card from './Deck/Card/Card';
 
 export default function Game({cardCount}) {
-  
-  const [cards, setCards] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [cards, setCards] = useState(null);
   const [selectedCards, setSelectedCards] = useState([]);
-
-  const [score, setScore] = useState(1);
+  const [score, setScore] = useState(0);
 
 
   //Whenever a card is clicked, update selectedCards and increment score by 1
   const handleCardClick = (data) => {
-    setSelectedCards([...selectedCards, data]);
-    setScore(score + 1);
-    console.log(score);
+    if(!selectedCards.includes(data)){
+      setSelectedCards([...selectedCards, data]);
+      setScore(score + 1);
+      console.log(score);
+    }else{
+      console.log("Game Over!")
+      console.log(`Score: ${score}`)
+    }
+    
   }
 
   //Temporary function to see selected cards array
