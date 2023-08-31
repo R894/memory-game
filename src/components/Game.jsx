@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Card from './Deck/Card/Card';
+import Card from './Card/Card';
 
 export default function Game({cardCount}) {
   const [isLoading, setIsLoading] = useState(true);
