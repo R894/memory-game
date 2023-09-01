@@ -2,8 +2,9 @@ import { useState } from "react";
 import Game from "../components/Game";
 
 export default function Menu(){
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(15);
     const [startGame, setStartGame] = useState(false);
+
 
     const handleInputChange = (event) => {
         const inputValue = event.target.value;

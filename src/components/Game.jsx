@@ -56,17 +56,19 @@ export default function Game({cardCount}) {
     {isLoading ? (
       <p>Loading data...</p>
     ) : (
-      <div className='flex flex-col items-center'>
-      <div className='text-3xl'>Score: {score}</div>
-
-      {!isGameOver? (
-        <div className="grid grid-flow-col grid-rows-2 gap-3">
-        {cards ? cards.map((card, index) => (<div key={index}><Card data={card} onCardClick={() => handleCardClick(card)}/></div>))
-         : null}
+      <div className='flex flex-col items-center overflow-auto my-auto p-5 gap-4'>
+        <div className='text-3xl'>
+          Score: {score}
         </div>
-      ) : (<>
-        <div className='text-3xl'>Game Over!</div>
-      </>)}
+
+        {!isGameOver? (
+          <div className="grid grid-cols-6 grid-flow-row gap-3">
+          {cards ? cards.map((card, index) => (<div key={index}><Card data={card} onCardClick={() => handleCardClick(card)}/></div>))
+          : null}
+          </div>
+        ) : (<>
+          <div className='text-3xl'>Game Over!</div>
+        </>)}
       
 
       </div>
