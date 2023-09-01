@@ -7,10 +7,15 @@ export default function Menu(){
 
     const handleInputChange = (event) => {
         const inputValue = event.target.value;
-
-        setCount(parseInt(inputValue));
+        if(parseInt(inputValue) > 1){
+            setCount(parseInt(inputValue));
+        }
     }
-    const onButtonClick = () => { setStartGame(true)}
+    const onButtonClick = () => { 
+        if(count > 1){
+            setStartGame(true);
+        }
+    }
 
 
     return(
