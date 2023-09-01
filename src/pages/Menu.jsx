@@ -12,6 +12,7 @@ export default function Menu(){
             setCount(parseInt(inputValue));
         }
     }
+
     const onButtonClick = () => { 
         if(count > 1){
             setStartGame(true);
@@ -28,7 +29,7 @@ export default function Menu(){
                     <button onClick={onButtonClick}>Start</button>
                 </div>
             )}
-            {startGame && <Game cardCount={count}/>}
+            {startGame && <Game cardCount={count} onReturnToMenu={() =>setStartGame(false)}/>}
         </div>
     );
 }

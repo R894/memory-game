@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import Card from './Card/Card';
 
-export default function Game({cardCount}) {
+export default function Game({cardCount, onReturnToMenu}) {
   const [isLoading, setIsLoading] = useState(true);
   const [cards, setCards] = useState(null);
   const [selectedCards, setSelectedCards] = useState([]);
   const [score, setScore] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
+  const [highScore, setHighScore] = useState(0);
 
 
   //Whenever a card is clicked, update selectedCards and increment score by 1
@@ -23,6 +24,15 @@ export default function Game({cardCount}) {
     }
     
   }
+
+  const handleReturnToMenu = () => {
+    setScore(0);
+    setSelectedCards([]);
+    setIsGameOver(false);
+    onReturnToMenu();
+  }
+
+
 
   //Temporary function to see selected cards array
   useEffect(() => {
@@ -67,12 +77,15 @@ export default function Game({cardCount}) {
           : null}
           </div>
         ) : (<>
+          {score > highScore ? setHighScore(score) : null}
           <div className='text-3xl'>Game Over!</div>
+          <button onClick={handleReturnToMenu}>Return to Menu</button>
+          
         </>)}
-      
-
       </div>
+      
     )}
+
     </>
   )
 }
