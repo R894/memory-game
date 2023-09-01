@@ -21,7 +21,7 @@ export default function Menu(){
 
 
     return(
-        <div className="h-full w-full bg-lime-500 flex justify-center items-center">
+        <div className="h-full w-full bg-lime-500 flex justify-center items-center overflow-auto">
             {!startGame && (
                 <div className="flex flex-col max-w-[50%] items-center bg-lime-500">
                     <div>Select amount of cards</div>
