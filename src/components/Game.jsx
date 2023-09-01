@@ -32,14 +32,6 @@ export default function Game({cardCount, onReturnToMenu}) {
     onReturnToMenu();
   }
 
-
-
-  //Temporary function to see selected cards array
-  useEffect(() => {
-    console.log(selectedCards);
-  }, [selectedCards]);
-
-
   //Fetch a deck then draw {cardCount} of cards
   useEffect(() => {
     setIsLoading(true);

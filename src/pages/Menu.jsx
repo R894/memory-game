@@ -29,7 +29,7 @@ export default function Menu(){
                     <button onClick={onButtonClick}>Start</button>
                 </div>
             )}
-            {startGame && <Game cardCount={count} onReturnToMenu={() =>setStartGame(false)}/>}
+            {startGame && <Game cardCount={count} onReturnToMenu={() => setStartGame(false)}/>}
         </div>
     );
 }
